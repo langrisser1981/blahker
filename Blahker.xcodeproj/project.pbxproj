@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		482B816F2B57C4540091A562 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C50E20E2116B88600A8B495 /* Rule.swift */; };
+		482B81702B57C4540091A562 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8359691DE312FD0033A1BC /* AppDelegate.swift */; };
+		482B81712B57C4540091A562 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C83596B1DE312FD0033A1BC /* SetupViewController.swift */; };
+		482B81722B57C4540091A562 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF743F41DF2D9C6008CA1CC /* AboutViewController.swift */; };
+		482B81732B57C4540091A562 /* BlockerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1E61F81DF405F9002BA1B5 /* BlockerListViewController.swift */; };
+		482B81742B57C4540091A562 /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C12CBF51DF34B35003E129D /* PurchaseManager.swift */; };
+		482B81752B57C45D0091A562 /* ContentBlockerRequestHandlerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF96A811DE9317500043471 /* ContentBlockerRequestHandlerError.swift */; };
 		48647EB62B19D9A70020828A /* MyLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 48647EB52B19D9A70020828A /* MyLibrary */; };
 		6C04CC2B1DEF4967006B23D4 /* BlockerListLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C04CC2A1DEF4967006B23D4 /* BlockerListLoader.swift */; };
 		6C4721862116D83F0031A64E /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = 6C50B15E1E1BFA4A00D2C338 /* blockerList.json */; };
@@ -81,6 +88,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		482B81762B57CD8E0091A562 /* Test Plan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Test Plan.xctestplan"; sourceTree = "<group>"; };
 		48647EB42B19D93A0020828A /* MyLibrary */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MyLibrary; sourceTree = "<group>"; };
 		6C04CC2A1DEF4967006B23D4 /* BlockerListLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockerListLoader.swift; sourceTree = "<group>"; };
 		6C12CBF51DF34B35003E129D /* PurchaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
@@ -213,6 +221,7 @@
 		6C8359681DE312FD0033A1BC /* Blahker */ = {
 			isa = PBXGroup;
 			children = (
+				482B81762B57CD8E0091A562 /* Test Plan.xctestplan */,
 				6C8359691DE312FD0033A1BC /* AppDelegate.swift */,
 				6C83596B1DE312FD0033A1BC /* SetupViewController.swift */,
 				6CF743F41DF2D9C6008CA1CC /* AboutViewController.swift */,
@@ -490,6 +499,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				482B81752B57C45D0091A562 /* ContentBlockerRequestHandlerError.swift in Sources */,
+				482B816F2B57C4540091A562 /* Rule.swift in Sources */,
+				482B81702B57C4540091A562 /* AppDelegate.swift in Sources */,
+				482B81712B57C4540091A562 /* SetupViewController.swift in Sources */,
+				482B81722B57C4540091A562 /* AboutViewController.swift in Sources */,
+				482B81732B57C4540091A562 /* BlockerListViewController.swift in Sources */,
+				482B81742B57C4540091A562 /* PurchaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -796,6 +812,7 @@
 		6C8359921DE312FE0033A1BC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = SE9N6X5V7C;
 				INFOPLIST_FILE = BlahkerTests/Info.plist;
@@ -814,6 +831,7 @@
 		6C8359931DE312FE0033A1BC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = SE9N6X5V7C;
 				INFOPLIST_FILE = BlahkerTests/Info.plist;
