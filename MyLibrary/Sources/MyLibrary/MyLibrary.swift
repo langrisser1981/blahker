@@ -16,7 +16,27 @@ struct Blahker: App {
 struct AppFeature: Reducer {
     struct State: Equatable {}
 
-    enum Action: Equatable {}
+    enum Action: Equatable {
+        case entersForeground
+        case checksContentBlockerEnabled
+        case reportsUserContentBlockerStatus(Bool)
+    }
 
-    func reduce(into state: inout State, action: Action) -> Effect<Action> {}
+    @Dependency(\.safariService) var safariService
+
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
+        switch action {
+        case .entersForeground:
+            return .send(.checksContentBlockerEnabled)
+        case .checksContentBlockerEnabled:
+            return .run { send in
+                let contentBlockerExteiosnIdentifier = "com.elaborapp.Blahker.ContentBlocker"
+                let isEnabled = await safariService.checksContentBlockerEnabled(contentBlockerExteiosnIdentifier)
+                await send(.reportsUserContentBlockerStatus(isEnabled))
+            }
+//            return .send(.reportsUserContentBlockerStatus(false))
+        case .reportsUserContentBlockerStatus(let bool):
+            return .none
+        }
+    }
 }
