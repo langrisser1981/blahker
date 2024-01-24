@@ -8,7 +8,10 @@ import SwiftUI
 struct Blahker: App {
     var body: some Scene {
         WindowGroup {
-            Text("hello world")
+            AppView(store: Store(
+                initialState: AppFeature.State(),
+                reducer: { AppFeature() }
+            ))
         }
     }
 }
@@ -38,5 +41,24 @@ struct AppFeature: Reducer {
         case .reportsUserContentBlockerStatus(let bool):
             return .none
         }
+    }
+}
+
+struct AppView: View {
+    let store: StoreOf<AppFeature>
+    @Environment(\.scenePhase) private var scenePhase
+
+    var body: some View {
+        Text("hello world")
+            .onChange(of: scenePhase) { scenePhase in
+                switch scenePhase {
+                case .active:
+                    store.send(.entersForeground)
+                case .background, .inactive:
+                    break
+                @unknown default:
+                    break
+                }
+            }
     }
 }
