@@ -14,18 +14,19 @@ struct SafariService {
 }
 
 extension SafariService: DependencyKey {
-    static var liveValue = SafariService { contentBlockerExteiosnIdentifier in
-        SFContentBlockerManager.getStateOfContentBlocker(
-            withIdentifier: contentBlockerExteiosnIdentifier,
-            completionHandler: { state, _ in
-                switch state?.isEnabled {
-                case .some(true):
-                    break
-                default:
-                    break
-                }
-            })
-        return true
+    static var liveValue = SafariService { bundleID in
+        await withCheckedContinuation { continuation in
+            SFContentBlockerManager.getStateOfContentBlocker(
+                withIdentifier: bundleID,
+                completionHandler: { state, _ in
+                    switch state?.isEnabled {
+                    case .some(true):
+                        continuation.resume(returning: true)
+                    default:
+                        continuation.resume(returning: false)
+                    }
+                })
+        }
     }
 }
 
