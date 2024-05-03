@@ -9,12 +9,12 @@ import Dependencies
 import Foundation
 import SafariServices
 
-struct ContentBlockerService {
-    var checksContentBlockerEnabled: (String) async -> Bool
+public struct ContentBlockerService {
+    public var checksContentBlockerEnabled: (String) async -> Bool
 }
 
 extension ContentBlockerService: DependencyKey {
-    static var liveValue = ContentBlockerService { bundleID in
+    public static var liveValue = ContentBlockerService { bundleID in
         await withCheckedContinuation { continuation in
             SFContentBlockerManager.getStateOfContentBlocker(
                 withIdentifier: bundleID,
@@ -31,12 +31,12 @@ extension ContentBlockerService: DependencyKey {
 }
 
 extension ContentBlockerService: TestDependencyKey {
-    static var testValue = ContentBlockerService { _ in
+    public static var testValue = ContentBlockerService { _ in
         unimplemented("checksContentBlockerEnabled")
     }
 }
 
-extension DependencyValues {
+public extension DependencyValues {
     var contentBlockerService: ContentBlockerService {
         get { self[ContentBlockerService.self] }
         set { self[ContentBlockerService.self] = newValue }
