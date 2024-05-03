@@ -17,7 +17,9 @@ struct Blahker: App {
 }
 
 struct AppFeature: Reducer {
-    struct State: Equatable {}
+    struct State: Equatable {
+        var isEnabledContentBlocer: Bool = false
+    }
 
     enum Action: Equatable {
         case entersForeground
@@ -49,16 +51,21 @@ struct AppView: View {
     @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
-        Text("hello world")
-            .onChange(of: scenePhase) { scenePhase in
-                switch scenePhase {
-                case .active:
-                    store.send(.entersForeground)
-                case .background, .inactive:
-                    break
-                @unknown default:
-                    break
+        WithViewStore(store) { state in
+            state.isEnabledContentBlocer
+        } content: { viewStore in
+            let isEnabledContentBlocker = viewStore.state
+            Text("hello world \(isEnabledContentBlocker ? "yes" : "no")")
+                .onChange(of: scenePhase) { scenePhase in
+                    switch scenePhase {
+                    case .active:
+                        store.send(.entersForeground)
+                    case .background, .inactive:
+                        break
+                    @unknown default:
+                        break
+                    }
                 }
-            }
+        }
     }
 }

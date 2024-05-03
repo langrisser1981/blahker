@@ -387,7 +387,6 @@
 					};
 					6C8359651DE312FD0033A1BC = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = SE9N6X5V7C;
 						LastSwiftMigration = 1100;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -410,7 +409,6 @@
 					};
 					6CC9F0C21DE31340004142AC = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = SE9N6X5V7C;
 						LastSwiftMigration = 1100;
 						ProvisioningStyle = Automatic;
 					};
@@ -766,7 +764,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 12;
-				DEVELOPMENT_TEAM = SE9N6X5V7C;
+				DEVELOPMENT_TEAM = HL5QE2AN2Y;
 				INFOPLIST_FILE = Blahker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -791,7 +789,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 12;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = HL5QE2AN2Y;
 				INFOPLIST_FILE = Blahker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -914,7 +912,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 12;
-				DEVELOPMENT_TEAM = SE9N6X5V7C;
+				DEVELOPMENT_TEAM = HL5QE2AN2Y;
 				INFOPLIST_FILE = ContentBlocker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
