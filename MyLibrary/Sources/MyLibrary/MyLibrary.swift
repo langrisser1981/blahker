@@ -27,7 +27,7 @@ struct AppFeature: Reducer {
         case reportsUserContentBlockerStatus(Bool)
     }
 
-    @Dependency(\.safariService) var safariService
+    @Dependency(\.contentBlockerService) var safariService
 
     func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
@@ -39,7 +39,6 @@ struct AppFeature: Reducer {
                 let isEnabled = await safariService.checksContentBlockerEnabled(contentBlockerExteiosnIdentifier)
                 await send(.reportsUserContentBlockerStatus(isEnabled))
             }
-//            return .send(.reportsUserContentBlockerStatus(false))
         case .reportsUserContentBlockerStatus(let bool):
             return .none
         }

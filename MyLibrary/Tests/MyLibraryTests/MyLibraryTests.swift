@@ -25,7 +25,7 @@ class YourAppTests: XCTestCase {
         let store = TestStore(initialState: AppFeature.State()) {
             AppFeature()
         } withDependencies: {
-            $0.safariService.checksContentBlockerEnabled = { _ in false }
+            $0.contentBlockerService.checksContentBlockerEnabled = { _ in false }
         }
 
         await store.send(.entersForeground)
@@ -38,12 +38,12 @@ class YourAppTests: XCTestCase {
         let store = TestStore(initialState: AppFeature.State()) {
             AppFeature()
         } withDependencies: {
-            $0.safariService.checksContentBlockerEnabled = { _ in false }
+            $0.contentBlockerService.checksContentBlockerEnabled = { _ in true }
         }
 
         await store.send(.entersForeground)
         await store.receive(.checksContentBlockerEnabled)
-        await store.receive(.reportsUserContentBlockerStatus(false))
+        await store.receive(.reportsUserContentBlockerStatus(true))
     }
 
     // 測試當使用者原本沒啟用阻擋功能，但提示後啟用的行為
@@ -51,14 +51,14 @@ class YourAppTests: XCTestCase {
         let store = TestStore(initialState: AppFeature.State()) {
             AppFeature()
         } withDependencies: {
-            $0.safariService.checksContentBlockerEnabled = { _ in false }
+            $0.contentBlockerService.checksContentBlockerEnabled = { _ in false }
         }
 
         await store.send(.entersForeground)
         await store.receive(.checksContentBlockerEnabled)
         await store.receive(.reportsUserContentBlockerStatus(false))
 
-        store.dependencies.safariService.checksContentBlockerEnabled = { _ in true }
+        store.dependencies.contentBlockerService.checksContentBlockerEnabled = { _ in true }
         await store.send(.entersForeground)
         await store.receive(.checksContentBlockerEnabled)
         await store.receive(.reportsUserContentBlockerStatus(true))
